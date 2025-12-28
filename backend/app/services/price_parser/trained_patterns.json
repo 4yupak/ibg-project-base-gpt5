@@ -1,0 +1,335 @@
+{
+  "version": "1.0",
+  "last_updated": "2025-12-28",
+  "training_files": [
+    "Prices_Sunny_Moon_Village.xlsx",
+    "Шахматка Sun Hills Layan Phuket.xlsx",
+    "Price-List - December 2025.pdf",
+    "The 8 pool villa Price List 06.02.24.pdf",
+    "amber chamber RUS-Price list December 2025-1.pdf",
+    "Price List BGA.pdf"
+  ],
+  "field_corrections": [
+    {
+      "from": "Ambience",
+      "to": "view",
+      "approved": false,
+      "correct_field": "ambience"
+    },
+    {
+      "from": "View",
+      "to": "view",
+      "approved": true
+    },
+    {
+      "from": "Unit Type",
+      "to": "layout",
+      "approved": true
+    },
+    {
+      "from": "Type",
+      "to": "layout",
+      "approved": true
+    },
+    {
+      "from": "Leasehold",
+      "to": "price",
+      "approved": false,
+      "correct_field": "leasehold_price"
+    },
+    {
+      "from": "Furniture package",
+      "to": "furniture_price",
+      "approved": true,
+      "note": "value contains percentage"
+    },
+    {
+      "from": "Land area",
+      "to": "land_area",
+      "approved": true
+    },
+    {
+      "from": "Pool Size",
+      "to": "pool_size",
+      "approved": true
+    }
+  ],
+  "new_fields_required": [
+    "land_area",
+    "pool_size",
+    "parking",
+    "furniture_price",
+    "investment_type",
+    "payment_term",
+    "leasehold_price",
+    "ambience"
+  ],
+  "patterns": {
+    "unit_number": {
+      "headers": [
+        "unit no",
+        "unit no.",
+        "unit number",
+        "unit #",
+        "unit",
+        "no.",
+        "номер",
+        "номер юнита",
+        "№",
+        "villa",
+        "№ of villa",
+        "вилла"
+      ],
+      "confidence": 0.95
+    },
+    "bedrooms": {
+      "headers": [
+        "bedrooms",
+        "bedroom",
+        "beds",
+        "br",
+        "no. of bedroom",
+        "number bedroom",
+        "спальни",
+        "спальня",
+        "комнат",
+        "к",
+        "2-к",
+        "1-к",
+        "студия"
+      ],
+      "confidence": 0.95,
+      "value_patterns": [
+        "studio=0",
+        "студия=0",
+        "1-к=1",
+        "2-к=2",
+        "3-к=3",
+        "4-к=4"
+      ]
+    },
+    "bathrooms": {
+      "headers": [
+        "bathrooms",
+        "bathroom",
+        "baths",
+        "bath",
+        "ванные",
+        "ванные комнаты",
+        "санузел"
+      ],
+      "confidence": 0.95
+    },
+    "area": {
+      "headers": [
+        "area",
+        "size",
+        "sqm",
+        "sq.m",
+        "sq.m.",
+        "built-up area",
+        "built up area",
+        "total built up",
+        "жилая площадь",
+        "площадь",
+        "м²",
+        "кв.м",
+        "кв. м"
+      ],
+      "confidence": 0.9
+    },
+    "land_area": {
+      "headers": [
+        "land area",
+        "plot size",
+        "площадь участка",
+        "land area, sqm",
+        "plot size (sq.m)",
+        "land area (sq.w.)"
+      ],
+      "confidence": 0.85
+    },
+    "floor": {
+      "headers": [
+        "floor",
+        "level",
+        "flr",
+        "этаж",
+        "эт",
+        "1st floor",
+        "2nd floor",
+        "3rd floor",
+        "4th floor"
+      ],
+      "confidence": 0.95
+    },
+    "building": {
+      "headers": [
+        "building",
+        "tower",
+        "block",
+        "bldg",
+        "корпус",
+        "литер",
+        "здание"
+      ],
+      "confidence": 0.95
+    },
+    "price": {
+      "headers": [
+        "price",
+        "selling price",
+        "total price",
+        "villa price",
+        "цена",
+        "цена продажи",
+        "стоимость"
+      ],
+      "confidence": 0.95
+    },
+    "leasehold_price": {
+      "headers": [
+        "leasehold",
+        "leasehold price"
+      ],
+      "confidence": 0.9
+    },
+    "price_per_sqm": {
+      "headers": [
+        "price per sqm",
+        "price/sqm",
+        "цена за м²",
+        "цена/кв. м",
+        "цена за кв.м"
+      ],
+      "confidence": 0.95
+    },
+    "status": {
+      "headers": [
+        "status",
+        "availability",
+        "avail",
+        "статус",
+        "наличие",
+        "booking status"
+      ],
+      "confidence": 0.95,
+      "value_patterns": {
+        "available": [
+          "available",
+          "avail",
+          "свободен",
+          "доступно",
+          "в продаже",
+          "open"
+        ],
+        "sold": [
+          "sold",
+          "продан",
+          "продано",
+          "closed"
+        ],
+        "reserved": [
+          "reserved",
+          "бронь",
+          "резерв",
+          "hold",
+          "забронирован"
+        ],
+        "sample": [
+          "образец",
+          "sample",
+          "show unit"
+        ]
+      },
+      "color_patterns": {
+        "green": "available",
+        "red": "sold",
+        "yellow": "reserved",
+        "orange": "reserved",
+        "gray": "sold",
+        "blue": "reserved"
+      }
+    },
+    "view": {
+      "headers": [
+        "view",
+        "вид"
+      ],
+      "confidence": 0.9
+    },
+    "ambience": {
+      "headers": [
+        "ambience"
+      ],
+      "confidence": 0.85
+    },
+    "layout": {
+      "headers": [
+        "type",
+        "unit type",
+        "layout",
+        "layout type",
+        "тип",
+        "планировка"
+      ],
+      "confidence": 0.85
+    },
+    "phase": {
+      "headers": [
+        "phase",
+        "фаза",
+        "очередь"
+      ],
+      "confidence": 0.85
+    },
+    "pool_size": {
+      "headers": [
+        "pool size",
+        "pool",
+        "размер бассейна",
+        "бассейн"
+      ],
+      "confidence": 0.8
+    },
+    "parking": {
+      "headers": [
+        "parking",
+        "car park",
+        "парковка",
+        "парковочные места"
+      ],
+      "confidence": 0.8
+    },
+    "furniture_price": {
+      "headers": [
+        "furniture",
+        "furniture package",
+        "мебель",
+        "встроенная мебель",
+        "мебель (не встроенная)"
+      ],
+      "confidence": 0.75,
+      "note": "May contain percentage like '7%'"
+    },
+    "investment_type": {
+      "headers": [
+        "investment option",
+        "investment",
+        "rental pool",
+        "инвестиционная программа"
+      ],
+      "confidence": 0.75
+    },
+    "payment_term": {
+      "headers": [
+        "payment term",
+        "payment",
+        "условия оплаты",
+        "booking",
+        "sign contract"
+      ],
+      "confidence": 0.7
+    }
+  }
+}
